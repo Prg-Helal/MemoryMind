@@ -1,0 +1,501 @@
+/* import font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Luckiest+Guy&display=swap');
+
+/* common style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.gallsy-background {
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 400px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* body style */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #3b0764);
+    position: relative;
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+*/ body::before {
+    content: "";
+    position: absolute;
+    top: -10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 50vw;
+    max-width: 600px;
+    max-height: 600px;
+    background: radial-gradient(circle, rgba(91, 33, 182, 0.6) 0%, transparent 70%);
+    filter: blur(8vw);
+    z-index: -10000;
+}
+
+@media (max-width: 400px) {
+    body::before {
+        width: 70vw;
+        height: 70vw;
+        filter: blur(10vw);
+        top: -15vh;
+        z-index: -10000;
+    }
+}
+
+/* scroll bar  */
+
+/* 1. Scrollbar basic styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 10px;
+}
+
+/* 2. Scrollbar thumb with glow animation */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b0764, #5b21b6);
+    border-radius: 10px;
+    animation: glow 3s infinite alternate;
+    box-shadow: 0 0 5px #7c3aed, 0 0 10px #7c3aed;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 3. On hover: more intense glow */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9333ea, #a855f7);
+    box-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #a855f7;
+}
+
+/* 4. Glow keyframes animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #7c3aed, 0 0 10px #7c3aed;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #9333ea, 0 0 20px #9333ea, 0 0 40px #9333ea;
+    }
+}
+
+/* 5. Firefox support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #5b21b6 #0f172a;
+}
+
+/* welcome form */
+.d-none{
+    display: none;
+}
+.welcome-form {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-color: #00000070;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.welcome-container {
+    width: 450px;
+    height: 300px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #0f172a, #3b0764);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-container .btn-enter {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: absolute;
+    top: 15%;
+    right: 1px;
+    font-size: x-large;
+    width: 25px !important;
+    animation: up-down 1s infinite;
+}
+
+@keyframes up-down {
+    0% , 100%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(3px);
+    }
+}
+
+/* From Uiverse.io by liyaxu123 */
+/* From Uiverse.io by foxyyyyyyyyyyyyy */
+.form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: 400px;
+}
+
+.form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    color: #fff;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+    color: lightblue;
+    transform: translateY(-30px);
+}
+
+.btn-enter:hover {
+    color: #7c3aed;
+}
+
+.btn-enter:active {
+    color: #5b21b6;
+}
+
+@media (max-width: 600px) {
+    .welcome-container {
+        height: 300px;
+        width: 350px;
+    }
+
+    .form-control {
+        width: 300px;
+    }
+
+    .btn-enter {}
+
+}
+
+/* header style */
+.header {
+    text-align: center;
+    z-index: 1000000;
+}
+
+.header .header-text {
+    color: #fff;
+    border-radius: 50px;
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 2s infinite alternate;
+    cursor: default;
+    font-family: "Luckiest Guy", cursive;
+
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
+
+@media (max-width: 600px) {
+    .header .header-text {
+        width: 350px;
+        font-size: 2rem;
+    }
+
+    .gallsy-background {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+    }
+}
+
+/* info container */
+.data-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+@media(max-width: 600px) {
+    .data-container {
+        width: 350px;
+        font-size: .9rem;
+    }
+}
+
+/* memory card */
+.memory-game-container {
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1.2rem;
+}
+
+.cards,
+.card,
+.view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card .back-view img {
+    max-width: 45px;
+}
+
+.cards .card {
+    cursor: pointer;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+
+}
+
+.card .front-view span {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 3px 10px #ffffff70);
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+}
+
+
+.cards .card .view {
+    width: 100%;
+    height: 100%;
+    background-color: #a955f72f;
+    box-shadow: 0 3px 10px #3c0764e7;
+    border-radius: 7px;
+    position: absolute;
+    backface-visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .memory-game-container {
+        width: 350px;
+        height: 350px;
+    }
+
+}
+
+.card.shake {
+    animation: shake 0.5s ease-in;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-13px);
+    }
+
+    40% {
+        transform: translateX(13px);
+    }
+
+    60% {
+        transform: translateX(-8px);
+    }
+
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.card .front-view {
+    z-index: 2;
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+
+/* Restart */
+.restart-conatiner {
+    margin-top: 1rem;
+    height: 2.5rem;
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/* From Uiverse.io by mrhyddenn */
+.restart-conatiner button {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid rgb(61, 106, 255);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    width: 150px !important;
+    cursor: pointer;
+}
+
+.restart-conatiner button:hover {
+    background: #5b21b6;
+    box-shadow: 0 0 30px 5px #5a21b696;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.restart-conatiner button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.restart-conatiner button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+.restart-conatiner button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+@media (max-width:600px) {
+    button {
+        width: 150px !important;
+        height: 45px !important;
+    }
+
+    .restart-conatiner {
+
+        width: 350px;
+    }
+}

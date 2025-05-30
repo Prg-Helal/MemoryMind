@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- link tailwind -->
+    <!-- <link href="src/output.css" rel="stylesheet"> -->
+    <!-- link font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>MemoMind</title>
+
+    <link rel="icon" href="images/idea.png" type="image/png">
+
+</head>
+
+<body>
+
+
+    <audio id="bg-music" autoplay loop>
+        <source src="music/Sneaky Snitch.mp3" >
+        Your browser does not support the audio tag.
+    </audio>
+
+
+    <div class="welcome-form">
+        <div class="welcome-container">
+            <div class="form-control">
+                <input required="" type="value" id="txt-name">
+                <label>
+                    <span style="transition-delay:0ms">E</span><span style="transition-delay:20ms">n</span><span
+                        style="transition-delay:40ms">t</span><span style="transition-delay:60ms">e</span><span
+                        style="transition-delay:80ms">r</span><span style="transition-delay:100ms"> </span><span
+                        style="transition-delay:120ms">N</span><span style="transition-delay:140ms">a</span><span
+                        style="transition-delay:160ms">m</span><span style="transition-delay:180ms">e</span>
+                </label>
+                <button class="btn-enter"><i class="fa-solid fa-arrow-right"></i></button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <div class="header container">
+        <h1 class="header-text gallsy-background">
+            MemoMind
+        </h1>
+    </div>
+
+    <!-- info container -->
+    <div class="info-container container">
+        <div class="data-container gallsy-background">
+            <div class="name">
+                Hello : <span id="txt-hello"></span>
+            </div>
+            <div class="tries">
+                Wrong Tries <span id="tries-counter">0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Memory Game Grid -->
+    <div class="memory-game-container container gallsy-background">
+
+        <ul class="cards" id="cards-conatiner">
+        </ul>
+    </div>
+
+    <div class="restart-conatiner ">
+        <div class="">
+            <button class="btn-restart gallsy-background" onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
