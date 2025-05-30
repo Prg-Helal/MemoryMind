@@ -8,8 +8,9 @@ const txtName = document.getElementById("txt-name");
 
 const txtHello = document.getElementById("txt-hello");
 
-const successSound = new Audio("../music/success-340660.mp3")
-const wrongSound = new Audio("../music/wrong-47985.mp3")
+const successSound = new Audio("music/success-340660.mp3")
+
+const wrongSound = new Audio("music/wrong-47985.mp3")
 
 const welcomeContainer = document.querySelector(".welcome-form");
 btnEnter.addEventListener("click", setName)
@@ -19,6 +20,7 @@ function setName() {
     welcomeContainer.classList.add("d-none");
     txtHello.innerHTML = ``;
     txtHello.innerHTML = txtName.value
+    document.getElementById("bg-music").play();
 }
 const imgsURL = []
 
@@ -82,6 +84,7 @@ function matchCards(img1, img2) {
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         disableDeck = false;
+        successSound.currentTime = 0;
         successSound.play();
         return;
     }
@@ -89,8 +92,8 @@ function matchCards(img1, img2) {
     setTimeout(() => {
         cardOne.classList.add("shake");
         cardTwo.classList.add("shake");
+        wrongSound.currentTime = 0;
         wrongSound.play();
-
     }, 500);
 
     setTimeout(() => {
@@ -112,7 +115,19 @@ function restartGame() {
     disableDeck = false;
     triesCounter.innerHTML = 0;
 
-    shuffle();
+    imgsURL.sort(() => Math.random() - 0.5)
+    cardContainer.innerHTML = ``
+    imgsURL.forEach(img => {
+        cardContainer.innerHTML += `
+        <li class="card">
+            <div class="view front-view">
+                <span class="material-icons">?</span>
+            </div>
+            <div class="view back-view">
+                <img src="${img}" alt="img-card">
+            </div>
+        </li>`;
+    });
 
     const newCards = document.querySelectorAll(".card");
     newCards.forEach(card => {

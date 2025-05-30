@@ -220,8 +220,8 @@ body {
 
 @media (max-width: 600px) {
     .welcome-container {
-        height: 300px;
-        width: 350px;
+        height: 290px;
+        width: 320px;
     }
 
     .form-control {
@@ -325,6 +325,7 @@ body {
     perspective: 800px;
     transform-style: preserve-3d;
     transition: transform 0.2s ease;
+    will-change: transform;
 
 }
 
@@ -498,4 +499,35 @@ body {
 
         width: 350px;
     }
+}
+
+@media (max-width: 600px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .card {
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+    
+    .memory-game-container {
+        height: 90vw;
+        max-height: 350px;
+    }
+    
+    .card .back-view img {
+        max-width: 30px;
+    }
+    
+    /* تقليل تأثيرات blur على الهواتف */
+    .gallsy-background {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+}
+
+/* تحسينات للأداء العام */
+.card {
+    transform: translateZ(0);
 }
